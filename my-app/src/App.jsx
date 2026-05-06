@@ -625,7 +625,7 @@ function Contact() {
         <div className="contact-btns">
           <a href="mailto:aditirawat.work@email.com" className="btn btn-white"><ML/>Say Hello</a>
           <a href="https://github.com/aditixrawat" target="_blank" rel="noreferrer" className="btn btn-outline-white"><GH/>GitHub</a>
-          <a href="/resume.pdf" download className="btn btn-outline-white"><DL/>Resume</a>
+          <a href="/AditiRawatResume.pdf" download className="btn btn-outline-white"><DL/>Resume</a>
         </div>
         <div className="social-strip">
           <a href="https://linkedin.com/in/aditixrawat" target="_blank" rel="noreferrer" className="soc-btn" title="LinkedIn"><LI/></a>
