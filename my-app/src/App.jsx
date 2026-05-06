@@ -210,6 +210,15 @@ const G = () => (
     .vcell-brand{font-family:var(--mono);font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--burg);opacity:.75}
     .vcell-large-text{font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--ink);line-height:1;text-align:center;padding:2rem;position:relative;z-index:1}
     .vcell-large-text span{color:var(--burg);font-style:italic}
+    .vcell-video{cursor:pointer;position:relative}
+    .vcell-play-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.88);font-size:2.5rem;color:var(--burg);opacity:.65;transition:all .25s;z-index:2}
+    .vcell-video:hover .vcell-play-badge{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+    .video-modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9998;backdrop-filter:blur(4px)}
+    .video-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;width:min(92vw,900px);aspect-ratio:16/9;max-height:90vh;background:#111;border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+    .video-modal iframe{width:100%;height:100%;border:none;display:block;aspect-ratio:16/9}
+    .video-modal-close{position:absolute;top:1rem;right:1rem;width:42px;height:42px;background:rgba(255,255,255,.08);border:none;border-radius:50%;color:#fff;font-size:1.2rem;cursor:pointer;z-index:1;transition:all .2s}
+    .video-modal-close:hover{background:rgba(255,255,255,.18)}
 
     /* thinking */
     #thinking{background:var(--ink2);padding:7rem 4rem}
@@ -581,8 +590,41 @@ function Writing() {
   );
 }
 
+function VideoModal({ videoId, onClose }) {
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [onClose]);
+
+  return (
+    <>
+      <div className="video-modal-bg" onClick={onClose}/>
+      <div className="video-modal">
+        <button className="video-modal-close" onClick={onClose}>✕</button>
+        <iframe
+          src={`https://www.instagram.com/reel/${videoId}/embed/`}
+          title="Instagram Reel"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+    </>
+  );
+}
+
 function VisualEdge() {
   const ref = useReveal();
+  const [activeVideo, setActiveVideo] = useState(null);
+  const visualCells = [
+    { caption: "Editorial Direction", icon: "◇", videoId: "DQ10LwAkusQ" },
+    { caption: "Visual Storytelling", icon: "○", videoId: "DSZm9RuE-FS" },
+    { caption: "Campaign Modeling", icon: "△", videoId: "DUS_2O_k_X3" },
+    { caption: "Aesthetic Systems", icon: "□", videoId: "DJUZ7lUS9an" }
+  ];
+
   return (
     <section id="visual">
       <div className="reveal" ref={ref}>
@@ -600,16 +642,18 @@ function VisualEdge() {
             {["8th Sin","444nomizo","Ichimise"].map(b=><span key={b} className="vcell-brand">◆ {b}</span>)}
           </div>
         </div>
-        {[{caption:"Editorial Direction",icon:"◇"},{caption:"Visual Storytelling",icon:"○"},{caption:"Campaign Modeling",icon:"△"},{caption:"Aesthetic Systems",icon:"□"}].map((v,i)=>(
-          <div key={i} className="vcell">
+        {visualCells.map((v,i)=>(
+          <div key={i} className="vcell vcell-video" onClick={()=>setActiveVideo(v.videoId)}>
             <div className="vcell-bg">{v.icon}</div>
             <div className="vcell-inner">
               <span className="vcell-icon">{v.icon}</span>
               <div className="vcell-caption">{v.caption}</div>
             </div>
+            <div className="vcell-play-badge">▶</div>
           </div>
         ))}
       </div>
+      {activeVideo && <VideoModal videoId={activeVideo} onClose={()=>setActiveVideo(null)} />}
     </section>
   );
 }
