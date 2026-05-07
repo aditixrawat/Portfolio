@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const G = () => (
   <style>{`
@@ -32,8 +33,8 @@ const G = () => (
     ::-webkit-scrollbar-track{background:var(--cream)}
     ::-webkit-scrollbar-thumb{background:var(--burg)}
 
-    #dot{position:fixed;top:0;left:0;z-index:9999;width:8px;height:8px;background:var(--burg);border-radius:50%;pointer-events:none;mix-blend-mode:multiply}
-    #ring{position:fixed;top:0;left:0;z-index:9998;width:32px;height:32px;border:1.5px solid rgba(123,28,46,0.45);border-radius:50%;pointer-events:none}
+    #dot{position:fixed;top:0;left:0;z-index:10005;width:8px;height:8px;background:var(--burg);border-radius:50%;pointer-events:none;mix-blend-mode:multiply}
+    #ring{position:fixed;top:0;left:0;z-index:10004;width:32px;height:32px;border:1.5px solid rgba(123,28,46,0.45);border-radius:50%;pointer-events:none}
 
     /* ── NAV ── */
     nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.3rem 4rem;background:rgba(245,240,232,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border2)}
@@ -259,6 +260,53 @@ const G = () => (
     @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
     @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
     @keyframes stickerPop{0%{transform:rotate(-1.5deg) scale(0.75);opacity:0}70%{transform:rotate(-1.5deg) scale(1.06)}100%{transform:rotate(-1.5deg) scale(1);opacity:1}}
+    @keyframes glitchPulse{0%{opacity:.25;transform:translate3d(0,0,0)}30%{opacity:.1;transform:translate3d(3px,-2px,0)}60%{opacity:.18;transform:translate3d(-2px,1px,0)}100%{opacity:0;transform:translate3d(0,0,0)}}
+
+    .drop-philosophy{font-family:var(--mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.34);margin-top:.7rem;opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateY(6px)}
+    .drop-card:hover .drop-philosophy{opacity:1;transform:translateY(0)}
+    .drop-visual{position:relative;transition:transform .35s ease,filter .35s ease}
+    .drop-card:hover .drop-visual{transform:translateY(-2px) scale(1.01);filter:contrast(1.02) saturate(1.08)}
+    .vcell{background:var(--cream3);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:all .3s,transform .35s ease}
+    .vcell:hover{border-color:var(--burg);background:#fff;transform:translateY(-2px)}
+    .vcell-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.06;pointer-events:none;transition:transform .45s ease}
+    .vcell:hover .vcell-bg{transform:translate3d(10px,-8px,0)}
+
+    .diag-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:10000;}
+    .diagnostics-shell{position:fixed;top:50%;left:50%;width:min(90vw,800px);max-height:85vh;background:rgba(28,28,30,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,0.5);z-index:10001;overflow:hidden;display:flex;flex-direction:column;transform-origin:center;}
+    .diagnostics-shell.glitch{transform:translate(-51%, -49%) scale(1.01); filter:contrast(1.2) drop-shadow(0 0 10px rgba(0,255,65,.12));}
+    .diag-topbar{display:flex;justify-content:center;align-items:center;padding:0.8rem 1rem;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.1);position:relative;}
+    .diag-traffic-lights{position:absolute;left:1rem;display:flex;gap:8px;}
+    .diag-dot{width:12px;height:12px;border-radius:50%;}
+    .diag-dot.red{background:#FF5F56;cursor:pointer;}
+    .diag-dot.yellow{background:#FFBD2E;}
+    .diag-dot.green{background:#27C93F;}
+    .diag-title{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.8);letter-spacing:0.5px;}
+    .diag-container{display:grid;grid-template-columns:240px 1fr;min-height:450px;}
+    .diag-sidebar{padding:1.5rem 1rem;background:rgba(0,0,0,0.2);border-right:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:2rem;overflow-y:auto;}
+    .diag-section-title{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:0.7rem;text-transform:uppercase;color:rgba(255,255,255,0.4);letter-spacing:0.05em;margin-bottom:0.5rem;padding-left:0.8rem;}
+    .diag-stats-grid{display:flex;flex-direction:column;gap:0.6rem;padding:0 0.8rem;}
+    .diag-stat-item{display:flex;justify-content:space-between;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.7);}
+    .diag-stat-item strong{color:rgba(255,255,255,0.9);font-weight:500;}
+    .diag-command-list-vertical{display:flex;flex-direction:column;gap:0.2rem;}
+    .diag-command-button{background:transparent;border:none;color:rgba(255,255,255,0.6);text-align:left;padding:0.6rem 0.8rem;border-radius:6px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:0.85rem;cursor:pointer;transition:all 0.2s;width:100%;}
+    .diag-command-button:hover{background:rgba(255,255,255,0.08);color:#fff;}
+    .diag-command-button.active{background:#007AFF;color:#fff;font-weight:500;}
+    .diag-main{padding:1.5rem;font-family:'SF Mono',Consolas,Menlo,monospace;color:#E2E8F0;display:flex;flex-direction:column;background:rgba(0,0,0,0.4);overflow-y:auto;}
+    .diag-terminal-text{font-size:0.85rem;line-height:1.6;white-space:pre-wrap;margin-bottom:1rem;}
+    .diag-terminal-prompt{color:#27C93F;margin-right:0.5rem;}
+    .diag-terminal-path{color:#3B82F6;margin-right:0.5rem;}
+    .diag-terminal-output{display:flex;flex-direction:column;gap:0.5rem;font-size:0.85rem;opacity:0.9;}
+    .diag-glitch-overlay{position:fixed;inset:0;pointer-events:none;z-index:10002;opacity:0;mix-blend-mode:screen;transition:opacity .15s ease;}
+    .diag-glitch-overlay.active{opacity:.1;animation:glitchPulse .18s ease-out;}
+    @media(max-width:768px){
+      .diag-container{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:80vh;min-height:auto;}
+      .diag-sidebar{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);max-height:250px;}
+    }
+
+    body.late-night{background:#0b0c11!important;color:#f3f4f6!important;}
+    body.late-night .hero, body.late-night .medium-featured, body.late-night .thinking-item, body.late-night #skills, body.late-night #contact, body.late-night .drop-card, body.late-night .skill-block, body.late-night .vcell{filter:brightness(.92) saturate(.95);}
+    .late-night .hero-right-card, .late-night .monster-sticker, .late-night .mf-left, .late-night .mf-right{background:rgba(18,17,22,.98);}
+    .late-night .nav, .late-night footer{background:rgba(7,8,12,.93);border-color:rgba(255,255,255,.05);} 
 
     .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
     .reveal.visible{opacity:1;transform:translateY(0)}
@@ -289,9 +337,9 @@ const G = () => (
 
 /* ── data ── */
 const drops = [
-  { num:"DROP I", icon:"🏷️", title:"DeepFashion Tagger", concept:"Teaching machines to read a fit.", problem:"Fashion metadata is inconsistent and expensive to label at scale.", approach:"Classification model on the DeepFashion dataset — auto-tagging garment attributes: category, color, silhouette, formality.", stack:["Python","PyTorch","OpenCV","Flask API","Pandas"], outcome:"~70% reduction in manual tagging time. Exposed limits of single-label classification on layered outfits." },
-  { num:"DROP II", icon:"🧴", title:"Skincare Intel Scraper", concept:"Beauty data, finally structured.", problem:"Skincare ingredient data is scattered across reviews, blogs, and brand pages — never in one clean source.", approach:"BeautifulSoup + Requests scraper pipeline harvesting product data into a clean, EDA-ready dataset.", stack:["Python","BeautifulSoup","Requests","Pandas","Matplotlib"], outcome:"2,000+ product records compiled. Ingredient frequency patterns for a skincare recommender prototype." },
-  { num:"DROP III", icon:"🔗", title:"CustomQR", concept:"Functional art. Encoded.", problem:"Standard QR codes often lack brand alignment and visual appeal, creating a disconnect between functional tech and modern aesthetics.", approach:"Bridged the gap between data encoding and tech-driven design by building a Python-based generator with a dynamic preview engine and custom styling.", stack:["Python","Tkinter","ttkbootstrap","QR Code API"], outcome:"Delivered an intuitive UI that supports real-time URL encoding and customizable color themes." },
+  { num:"DROP I", icon:"🏷️", title:"DeepFashion Tagger", concept:"Teaching machines to read a fit.", philosophy:"Data-led style that feels considered, not arbitrary.", problem:"Fashion metadata is inconsistent and expensive to label at scale.", approach:"Classification model on the DeepFashion dataset — auto-tagging garment attributes: category, color, silhouette, formality.", stack:["Python","PyTorch","OpenCV","Flask API","Pandas"], outcome:"~70% reduction in manual tagging time. Exposed limits of single-label classification on layered outfits." },
+  { num:"DROP II", icon:"🧴", title:"Skincare Intel Scraper", concept:"Beauty data, finally structured.", philosophy:"Beauty systems are better when they speak the same language.", problem:"Skincare ingredient data is scattered across reviews, blogs, and brand pages — never in one clean source.", approach:"BeautifulSoup + Requests scraper pipeline harvesting product data into a clean, EDA-ready dataset.", stack:["Python","BeautifulSoup","Requests","Pandas","Matplotlib"], outcome:"2,000+ product records compiled. Ingredient frequency patterns for a skincare recommender prototype." },
+  { num:"DROP III", icon:"🔗", title:"CustomQR", concept:"Functional art. Encoded.", philosophy:"The interface is the brand; the code is the polish.", problem:"Standard QR codes often lack brand alignment and visual appeal, creating a disconnect between functional tech and modern aesthetics.", approach:"Bridged the gap between data encoding and tech-driven design by building a Python-based generator with a dynamic preview engine and custom styling.", stack:["Python","Tkinter","ttkbootstrap","QR Code API"], outcome:"Delivered an intuitive UI that supports real-time URL encoding and customizable color themes." },
 ];
 
 const skills = [
@@ -315,6 +363,156 @@ const marqueeData = [
   {t:"Ichimise",c:"w"},{t:"·",c:""},{t:"Monster Energy",c:"w"},{t:"·",c:""},
   {t:"Systems With Taste",c:"b"},{t:"·",c:""},
 ];
+
+const diagnosticsStats = [
+  { label: "Aesthetic Engine", value: "ACTIVE" },
+  { label: "Overthinking Module", value: "OVERCLOCKED" },
+  { label: "Creative RAM", value: "FULL" },
+  { label: "Trend Resistance", value: "HIGH" },
+  { label: "Corporate Compatibility", value: "UNKNOWN" },
+  { label: "Current Obsession", value: "DIGITAL DECAY" },
+  { label: "Energy Source", value: "Monster Energy" },
+];
+
+const diagnosticCommands = [
+  {
+    id: "whoami",
+    label: "whoami",
+    lines: [
+      "Aditi Rawat / Creative technologist / Fashion Systems Architect",
+      "Building premium interfaces that feel polished, minimal, and intentional.",
+      "This panel is a secret diagnostic layer for the quietly curious."
+    ]
+  },
+  {
+    id: "open archive",
+    label: "open archive",
+    lines: [
+      "Archive online: /collections /moodboards /runway /motion", 
+      "Current favorite archive: fashion tech collateral from 2025.",
+      "Hidden notes live in the corners of every line."
+    ]
+  },
+  {
+    id: "current obsession",
+    label: "current obsession",
+    lines: [
+      "DIGITAL DECAY — the tension between glossy and worn-in.",
+      "A system that feels polished but remembers the edge.",
+      "The ideal output is elegant, gritty, and quietly unexpected."
+    ]
+  },
+  {
+    id: "visual memory",
+    label: "visual memory",
+    lines: [
+      "Aesthetic references: black lacquer, plum glass, neon haze.",
+      "Subtle grain, scanline rhythm, soft motion blur.",
+      "Design language: fashion archive meets experimental terminal."
+    ]
+  },
+  {
+    id: "unfinished ideas",
+    label: "unfinished ideas",
+    lines: [
+      "1. Modular capsule wardrobe recommender based on mood scans.",
+      "2. Fashion metadata engine that talks in color, pattern, and memory.",
+      "3. Responsive visual system for editorial drops with soundscapes."
+    ]
+  },
+  {
+    id: "system logs",
+    label: "system logs",
+    lines: [
+      "[00:02] boot sequence complete.",
+      "[00:08] calibration stable: motion, grain, glow.",
+      "[00:11] diagnostics activated by hidden shortcut.",
+      "[00:14] interface ready. waiting for next command."
+    ]
+  }
+];
+
+function DiagnosticsPanel({ open, selectedCommand, setSelectedCommand, onClose, glitch }) {
+  const command = diagnosticCommands.find((item) => item.id === selectedCommand) || diagnosticCommands[0];
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <>
+          <motion.div
+            className="diag-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.24 }}
+            onClick={onClose}
+          />
+          <motion.section
+            className={`diagnostics-shell ${glitch ? "glitch" : ""}`}
+            initial={{ y: "-40%", x: "-50%", opacity: 0, scale: 0.95 }}
+            animate={{ y: "-50%", x: "-50%", opacity: 1, scale: 1 }}
+            exit={{ y: "-40%", x: "-50%", opacity: 0, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="diag-topbar">
+              <div className="diag-traffic-lights">
+                <div className="diag-dot red" onClick={onClose}></div>
+                <div className="diag-dot yellow"></div>
+                <div className="diag-dot green"></div>
+              </div>
+              <div className="diag-title">aditi@macbook-pro:~</div>
+            </div>
+            
+            <div className="diag-container">
+              <div className="diag-sidebar">
+                <div>
+                  <div className="diag-section-title">System Status</div>
+                  <div className="diag-stats-grid">
+                    {diagnosticsStats.map((stat) => (
+                      <div key={stat.label} className="diag-stat-item">
+                        <span>{stat.label}</span>
+                        <strong>{stat.value}</strong>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="diag-section-title">Commands</div>
+                  <div className="diag-command-list-vertical">
+                    {diagnosticCommands.map((item) => (
+                      <button
+                        key={item.id}
+                        className={`diag-command-button ${item.id === selectedCommand ? "active" : ""}`}
+                        onClick={() => setSelectedCommand(item.id)}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="diag-main">
+                <div className="diag-terminal-text">
+                  <span className="diag-terminal-prompt">aditi@macbook-pro</span>
+                  <span className="diag-terminal-path">~ %</span>
+                  <span> {command.label}</span>
+                </div>
+                <div className="diag-terminal-output">
+                  {command.lines.map((line, index) => (
+                    <div key={index}>{line}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.section>
+          <div className={`diag-glitch-overlay ${glitch ? "active" : ""}`} />
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
 
 /* ── hooks ── */
 function useReveal() {
@@ -359,12 +557,35 @@ function Cursor() {
       raf=requestAnimationFrame(tick);
     };
     raf=requestAnimationFrame(tick);
-    return ()=>{ window.removeEventListener("mousemove",mv); cancelAnimationFrame(raf); };
+
+    const hoverTargets = [".drop-card", ".skill-block", ".vcell", ".hero-right-card", ".hero-cta a"];
+    const getHover = (target) => hoverTargets.some((selector) => target.closest(selector));
+    const over = (event) => {
+      if (getHover(event.target)) {
+        if (dot.current) dot.current.style.background = "rgba(255,255,255,0.9)";
+        if (ring.current) ring.current.style.borderColor = "rgba(255,255,255,0.35)";
+      }
+    };
+    const out = (event) => {
+      if (!event.relatedTarget || !getHover(event.relatedTarget)) {
+        if (dot.current) dot.current.style.background = "var(--burg)";
+        if (ring.current) ring.current.style.borderColor = "rgba(123,28,46,0.45)";
+      }
+    };
+    window.addEventListener("mouseover", over);
+    window.addEventListener("mouseout", out);
+
+    return ()=>{
+      window.removeEventListener("mousemove",mv);
+      window.removeEventListener("mouseover", over);
+      window.removeEventListener("mouseout", out);
+      cancelAnimationFrame(raf);
+    };
   },[]);
   return <><div id="dot" ref={dot}/><div id="ring" ref={ring}/></>;
 }
 
-function Nav() {
+function Nav({ onLogoTap }) {
   const [sc,setSc]=useState(false);
   useEffect(()=>{
     const fn=()=>setSc(window.scrollY>50);
@@ -373,7 +594,7 @@ function Nav() {
   },[]);
   return (
     <nav style={{boxShadow:sc?"0 2px 24px rgba(17,17,17,0.07)":"none"}}>
-      <a href="#" className="nav-logo">Aditi<span>.</span></a>
+      <a href="#" className="nav-logo" onClick={(e) => { e.preventDefault(); onLogoTap && onLogoTap(); }}>Aditi<span>.</span></a>
       <ul className="nav-links">
         <li><a href="#drops">Drops</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -474,6 +695,7 @@ function DropCard({drop}) {
           </div>
           <h3 className="drop-title">{drop.title}</h3>
           <p className="drop-concept">{drop.concept}</p>
+          <p className="drop-philosophy">{drop.philosophy}</p>
           <p className="drop-flip-hint">Hover to explore →</p>
         </div>
         <div className="drop-back">
@@ -703,11 +925,69 @@ function Contact() {
 }
 
 export default function Portfolio() {
+  const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
+  const [selectedCommand, setSelectedCommand] = useState("whoami");
+  const [glitch, setGlitch] = useState(false);
+  const [lateNight, setLateNight] = useState(false);
+  const [tapCount, setTapCount] = useState(0);
+
+  useEffect(() => {
+    if (tapCount >= 5) {
+      setDiagnosticsOpen(true);
+      setTapCount(0); // reset
+    }
+    const timer = setTimeout(() => setTapCount(0), 1000);
+    return () => clearTimeout(timer);
+  }, [tapCount]);
+
+  const handleLogoTap = () => {
+    setTapCount(prev => prev + 1);
+  };
+
+  useEffect(() => {
+    const checkMode = () => {
+      const hour = new Date().getHours();
+      setLateNight(hour >= 23);
+    };
+    checkMode();
+    const interval = setInterval(checkMode, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("late-night", lateNight);
+  }, [lateNight]);
+
+  useEffect(() => {
+    const handleKeydown = (event) => {
+      // Use event.code === "KeyA" to avoid keyboard layout issues (e.g., AltGr mappings)
+      if ((event.key.toLowerCase() === "a" || event.code === "KeyA") && event.ctrlKey && event.altKey) {
+        event.preventDefault();
+        setDiagnosticsOpen((prev) => !prev); // Toggle on/off
+        setGlitch(true);
+        setTimeout(() => setGlitch(false), 180);
+      }
+      if (event.key === "Escape") {
+        setDiagnosticsOpen(false);
+        setGlitch(true);
+        setTimeout(() => setGlitch(false), 180);
+      }
+    };
+    window.addEventListener("keydown", handleKeydown);
+    return () => window.removeEventListener("keydown", handleKeydown);
+  }, []);
+
+  const closeDiagnostics = () => {
+    setDiagnosticsOpen(false);
+    setGlitch(true);
+    setTimeout(() => setGlitch(false), 180);
+  };
+
   return (
     <>
       <G/>
       <Cursor/>
-      <Nav/>
+      <Nav onLogoTap={handleLogoTap} />
       <main>
         <Hero/>
         <Marquee/>
@@ -718,6 +998,13 @@ export default function Portfolio() {
         <Thinking/>
         <Contact/>
       </main>
+      <DiagnosticsPanel
+        open={diagnosticsOpen}
+        selectedCommand={selectedCommand}
+        setSelectedCommand={setSelectedCommand}
+        onClose={closeDiagnostics}
+        glitch={glitch}
+      />
       <footer>
         <span className="ft">© 2025 Aditi Rawat · Systems With Taste</span>
         <div className="ft-status"><span className="ft-dot"/>Open to opportunities</div>
