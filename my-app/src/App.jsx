@@ -883,7 +883,7 @@ const diagStats = [
 const diagCmds = [
   {id:"whoami",label:"whoami",lines:["Aditi Rawat / Creative technologist / Fashion Systems Architect","Building premium interfaces that feel polished, minimal, and intentional.","This panel is a secret diagnostic layer for the quietly curious."]},
   {id:"open archive",label:"open archive",lines:["Archive online: /collections /moodboards /runway /motion","Current favorite archive: fashion tech collateral from 2025.","Hidden notes live in the corners of every line."]},
-  {id:"current obsession",label:"current obsession",lines:["DIGITAL DECAY — the tension between glossy and worn-in.","A system that feels polished but remembers the edge.","The ideal output is elegant, gritty, and quietly unexpected."]},
+  {id:"current obsession",label:"current obsession",lines:["DIGITAL DECAY","A system that feels polished but remembers the edge.","The ideal output is elegant, gritty, and quietly unexpected."]},
   {id:"visual memory",label:"visual memory",lines:["Aesthetic references: black lacquer, plum glass, neon haze.","Subtle grain, scanline rhythm, soft motion blur.","Design language: fashion archive meets experimental terminal."]},
   {id:"unfinished ideas",label:"unfinished ideas",lines:["1. Modular capsule wardrobe recommender based on mood scans.","2. Fashion metadata engine that talks in color, pattern, and memory.","3. Responsive visual system for editorial drops with soundscapes."]},
   {id:"system logs",label:"system logs",lines:["[00:02] boot sequence complete.","[00:08] calibration stable: motion, grain, glow.","[00:11] diagnostics activated by hidden shortcut.","[00:14] interface ready. waiting for next command."]},
