@@ -847,50 +847,50 @@ const wordReveal = {
    DATA
 ═══════════════════════════════════════════════════════ */
 const drops = [
-  { num:"DROP I", icon:"🏷️", title:"DeepFashion Tagger", concept:"Teaching machines to read a fit.", philosophy:"Data-led style that feels considered, not arbitrary.", problem:"Fashion metadata is inconsistent and expensive to label at scale.", approach:"Classification model on the DeepFashion dataset — auto-tagging garment attributes: category, color, silhouette, formality.", stack:["Python","PyTorch","OpenCV","Flask API","Pandas"], outcome:"~70% reduction in manual tagging time. Exposed limits of single-label classification on layered outfits." },
-  { num:"DROP II", icon:"🧴", title:"Skincare Intel Scraper", concept:"Beauty data, finally structured.", philosophy:"Beauty systems are better when they speak the same language.", problem:"Skincare ingredient data is scattered across reviews, blogs, and brand pages — never in one clean source.", approach:"BeautifulSoup + Requests scraper pipeline harvesting product data into a clean, EDA-ready dataset.", stack:["Python","BeautifulSoup","Requests","Pandas","Matplotlib"], outcome:"2,000+ product records compiled. Ingredient frequency patterns for a skincare recommender prototype." },
-  { num:"DROP III", icon:"🔗", title:"CustomQR", concept:"Functional art. Encoded.", philosophy:"The interface is the brand; the code is the polish.", problem:"Standard QR codes often lack brand alignment and visual appeal, creating a disconnect between functional tech and modern aesthetics.", approach:"Bridged the gap between data encoding and tech-driven design by building a Python-based generator with a dynamic preview engine and custom styling.", stack:["Python","Tkinter","ttkbootstrap","QR Code API"], outcome:"Delivered an intuitive UI that supports real-time URL encoding and customizable color themes." },
+  { num: "DROP I", icon: "🏷️", title: "DeepFashion Tagger", concept: "Teaching machines to read a fit.", philosophy: "Data-led style that feels considered, not arbitrary.", problem: "Fashion metadata is inconsistent and expensive to label at scale.", approach: "Classification model on the DeepFashion dataset — auto-tagging garment attributes: category, color, silhouette, formality.", stack: ["Python", "PyTorch", "OpenCV", "Flask API", "Pandas"], outcome: "~70% reduction in manual tagging time. Exposed limits of single-label classification on layered outfits." },
+  { num: "DROP II", icon: "🧴", title: "Skincare Intel Scraper", concept: "Beauty data, finally structured.", philosophy: "Beauty systems are better when they speak the same language.", problem: "Skincare ingredient data is scattered across reviews, blogs, and brand pages — never in one clean source.", approach: "BeautifulSoup + Requests scraper pipeline harvesting product data into a clean, EDA-ready dataset.", stack: ["Python", "BeautifulSoup", "Requests", "Pandas", "Matplotlib"], outcome: "2,000+ product records compiled. Ingredient frequency patterns for a skincare recommender prototype." },
+  { num: "DROP III", icon: "🔗", title: "CustomQR", concept: "Functional art. Encoded.", philosophy: "The interface is the brand; the code is the polish.", problem: "Standard QR codes often lack brand alignment and visual appeal, creating a disconnect between functional tech and modern aesthetics.", approach: "Bridged the gap between data encoding and tech-driven design by building a Python-based generator with a dynamic preview engine and custom styling.", stack: ["Python", "Tkinter", "ttkbootstrap", "QR Code API"], outcome: "Delivered an intuitive UI that supports real-time URL encoding and customizable color themes." },
 ];
 
 const skills = [
-  { icon:"📊", name:"Data Analysis", desc:"Exploratory analysis, pattern recognition, and insight storytelling via clean reproducible notebooks.", tags:["Pandas","NumPy","Matplotlib","Seaborn","Jupyter","EDA"] },
-  { icon:"🌐", name:"Web Development", desc:"Functional, aesthetic web experiences — Flask backends to polished frontends.", tags:["Flask","HTML","CSS","JavaScript","REST APIs"] },
-  { icon:"🤖", name:"Machine Learning", desc:"Classification models, feature engineering, and applied ML on real-world datasets.", tags:["Scikit-learn","PyTorch","TF-IDF","CNNs","Python"] },
-  { icon:"🔗", name:"APIs & Scraping", desc:"Extracting, cleaning, and structuring data from the web and third-party APIs.", tags:["BeautifulSoup","Requests","Selenium","JSON","Postman"] },
+  { icon: "📊", name: "Data Analysis", desc: "Exploratory analysis, pattern recognition, and insight storytelling via clean reproducible notebooks.", tags: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter", "EDA"] },
+  { icon: "🌐", name: "Web Development", desc: "Functional, aesthetic web experiences — Flask backends to polished frontends.", tags: ["Flask", "HTML", "CSS", "JavaScript", "REST APIs"] },
+  { icon: "🤖", name: "Machine Learning", desc: "Classification models, feature engineering, and applied ML on real-world datasets.", tags: ["Scikit-learn", "PyTorch", "TF-IDF", "CNNs", "Python"] },
+  { icon: "🔗", name: "APIs & Scraping", desc: "Extracting, cleaning, and structuring data from the web and third-party APIs.", tags: ["BeautifulSoup", "Requests", "Selenium", "JSON", "Postman"] },
 ];
 
 const thoughts = [
-  { text:"Good UI reduces <em>decision fatigue.</em>", note:"UX is empathy made visible." },
-  { text:"Data is only useful if it <em>changes behavior.</em>", note:"Numbers without action are noise." },
-  { text:"Aesthetic instinct is an <em>engineering advantage.</em>", note:"Beauty and function aren't opposites." },
-  { text:"The best systems are <em>invisible.</em>", note:"Complexity hidden, clarity exposed." },
+  { text: "Good UI reduces <em>decision fatigue.</em>", note: "UX is empathy made visible." },
+  { text: "Data is only useful if it <em>changes behavior.</em>", note: "Numbers without action are noise." },
+  { text: "Aesthetic instinct is an <em>engineering advantage.</em>", note: "Beauty and function aren't opposites." },
+  { text: "The best systems are <em>invisible.</em>", note: "Complexity hidden, clarity exposed." },
 ];
 
 const marqueeData = [
-  {t:"Aditi Rawat",c:"w"},{t:"·",c:""},{t:"Delhi, India",c:""},{t:"·",c:""},
-  {t:"Creative Engineer",c:"b"},{t:"·",c:""},{t:"Fashion × Data",c:"b"},{t:"·",c:""},
-  {t:"8th Sin",c:"w"},{t:"·",c:""},{t:"444nomizo",c:"w"},{t:"·",c:""},
-  {t:"Ichimise",c:"w"},{t:"·",c:""},{t:"Monster Energy",c:"w"},{t:"·",c:""},
-  {t:"Systems With Taste",c:"b"},{t:"·",c:""},
+  { t: "Aditi Rawat", c: "w" }, { t: "·", c: "" }, { t: "Delhi, India", c: "" }, { t: "·", c: "" },
+  { t: "Creative Engineer", c: "b" }, { t: "·", c: "" }, { t: "Fashion × Data", c: "b" }, { t: "·", c: "" },
+  { t: "8th Sin", c: "w" }, { t: "·", c: "" }, { t: "444nomizo", c: "w" }, { t: "·", c: "" },
+  { t: "Ichimise", c: "w" }, { t: "·", c: "" }, { t: "Monster Energy", c: "w" }, { t: "·", c: "" },
+  { t: "Systems With Taste", c: "b" }, { t: "·", c: "" },
 ];
 
 const diagStats = [
-  {label:"Aesthetic Engine",value:"ACTIVE"},
-  {label:"Overthinking Module",value:"OVERCLOCKED"},
-  {label:"Creative RAM",value:"FULL"},
-  {label:"Trend Resistance",value:"HIGH"},
-  {label:"Corporate Compatibility",value:"UNKNOWN"},
-  {label:"Current Obsession",value:"Young Sherlock"},
-  {label:"Energy Source",value:"Monster Energy"},
+  { label: "Aesthetic Engine", value: "ACTIVE" },
+  { label: "Overthinking Module", value: "OVERCLOCKED" },
+  { label: "Creative RAM", value: "FULL" },
+  { label: "Trend Resistance", value: "HIGH" },
+  { label: "Corporate Compatibility", value: "UNKNOWN" },
+  { label: "Current Obsession", value: "Young Sherlock" },
+  { label: "Energy Source", value: "Monster Energy" },
 ];
 
 const diagCmds = [
-  {id:"whoami",label:"whoami",lines:["Aditi Rawat / Creative technologist / Fashion Systems Architect","Building premium interfaces that feel polished, minimal, and intentional.","This panel is a secret diagnostic layer for the quietly curious."]},
-  {id:"open archive",label:"open archive",lines:["Archive online: /collections /moodboards /runway /motion","Current favorite archive: fashion tech collateral from 2025.","Hidden notes live in the corners of every line."]},
-  {id:"current obsession",label:"current obsession",lines:["DIGITAL DECAY","A system that feels polished but remembers the edge.","The ideal output is elegant, gritty, and quietly unexpected."]},
-  {id:"visual memory",label:"visual memory",lines:["Aesthetic references: black lacquer, plum glass, neon haze.","Subtle grain, scanline rhythm, soft motion blur.","Design language: fashion archive meets experimental terminal."]},
-  {id:"unfinished ideas",label:"unfinished ideas",lines:["1. Modular capsule wardrobe recommender based on mood scans.","2. Fashion metadata engine that talks in color, pattern, and memory.","3. Responsive visual system for editorial drops with soundscapes."]},
-  {id:"system logs",label:"system logs",lines:["[00:02] boot sequence complete.","[00:08] calibration stable: motion, grain, glow.","[00:11] diagnostics activated by hidden shortcut.","[00:14] interface ready. waiting for next command."]},
+  { id: "whoami", label: "whoami", lines: ["Aditi Rawat / Creative technologist / Fashion Systems Architect", "Building premium interfaces that feel polished, minimal, and intentional.", "This panel is a secret diagnostic layer for the quietly curious."] },
+  { id: "open archive", label: "open archive", lines: ["Archive online: /collections /moodboards /runway /motion", "Current favorite archive: fashion tech collateral from 2025.", "Hidden notes live in the corners of every line."] },
+  { id: "current obsession", label: "current obsession", lines: ["DIGITAL DECAY", "A system that feels polished but remembers the edge.", "The ideal output is elegant, gritty, and quietly unexpected."] },
+  { id: "visual memory", label: "visual memory", lines: ["Aesthetic references: black lacquer, plum glass, neon haze.", "Subtle grain, scanline rhythm, soft motion blur.", "Design language: fashion archive meets experimental terminal."] },
+  { id: "unfinished ideas", label: "unfinished ideas", lines: ["1. Modular capsule wardrobe recommender based on mood scans.", "2. Fashion metadata engine that talks in color, pattern, and memory.", "3. Responsive visual system for editorial drops with soundscapes."] },
+  { id: "system logs", label: "system logs", lines: ["[00:02] boot sequence complete.", "[00:08] calibration stable: motion, grain, glow.", "[00:11] diagnostics activated by hidden shortcut.", "[00:14] interface ready. waiting for next command."] },
 ];
 
 /* ═══════════════════════════════════════════════════════
@@ -912,14 +912,14 @@ function useReveal() {
 /* ═══════════════════════════════════════════════════════
    ICONS
 ═══════════════════════════════════════════════════════ */
-const GH = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>;
-const LI = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>;
-const IG = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>;
-const MDIcon = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>;
-const SB = () => <img src="/images/Substack.svg" alt="Substack" width="13" height="13"/>;
-const ML = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>;
-const DL = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>;
-const MonsterLogo = () => <img className="ms-logo" src="/images/monster-logo.png" alt="Monster Energy"/>;
+const GH = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>;
+const LI = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>;
+const IG = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>;
+const MDIcon = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" /></svg>;
+const SB = () => <img src="/images/Substack.svg" alt="Substack" width="13" height="13" />;
+const ML = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
+const DL = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" /></svg>;
+const MonsterLogo = () => <img className="ms-logo" src="/images/monster-logo.png" alt="Monster Energy" />;
 
 /* ═══════════════════════════════════════════════════════
    CUSTOM CURSOR — premium with blend-mode difference
@@ -934,7 +934,7 @@ function Cursor() {
     const onMove = e => { mx.set(e.clientX); my.set(e.clientY); };
     window.addEventListener("mousemove", onMove);
 
-    const hoverEls = [".drop-card",".skill-block",".vcell",".id-card",".btn",".nav-links a",".soc-btn",".monster-sticker"];
+    const hoverEls = [".drop-card", ".skill-block", ".vcell", ".id-card", ".btn", ".nav-links a", ".soc-btn", ".monster-sticker"];
     const isHover = t => hoverEls.some(s => t.closest && t.closest(s));
     const onOver = e => {
       if (isHover(e.target)) {
@@ -972,8 +972,8 @@ function Cursor() {
 
   return (
     <>
-      <div id="cursor-dot" ref={dot}/>
-      <div id="cursor-ring" ref={ring}/>
+      <div id="cursor-dot" ref={dot} />
+      <div id="cursor-ring" ref={ring} />
     </>
   );
 }
@@ -1032,8 +1032,8 @@ function Hero() {
   return (
     <section className="hero" ref={heroRef}>
       {/* Ambient glow spots */}
-      <div className="hero-ambient hero-ambient-1"/>
-      <div className="hero-ambient hero-ambient-2"/>
+      <div className="hero-ambient hero-ambient-1" />
+      <div className="hero-ambient hero-ambient-2" />
 
       {/* Parallax deco */}
       <motion.div
@@ -1045,12 +1045,12 @@ function Hero() {
       <motion.div className="hero-left" style={{ y: smoothContentY, opacity: contentOpacity }}>
         {/* Status */}
         <motion.div className="hero-status" variants={fIn(0.2)} initial="hidden" animate="visible">
-          <span className="live-dot"/>Delhi, India — Open to work
+          <span className="live-dot" />Delhi, India — Open to work
         </motion.div>
 
         {/* Eyebrow */}
         <motion.div className="hero-eyebrow" variants={fRight(0.32)} initial="hidden" animate="visible">
-          Engineering student · Creative technologist
+          Engineer · Creative technologist
         </motion.div>
 
         {/* Headline — word-by-word stagger */}
@@ -1062,14 +1062,14 @@ function Hero() {
           style={{ display: "block" }}
         >
           {words.map((w, i) =>
-            w.br ? <br key={i}/> :
-            w.s ? (
-              <motion.s key={i} variants={wordReveal} style={{ display: "inline" }}>{w.text}</motion.s>
-            ) : w.em ? (
-              <motion.em key={i} variants={wordReveal} style={{ display: "inline" }}>{w.text}</motion.em>
-            ) : (
-              <motion.span key={i} variants={wordReveal} style={{ display: "inline" }}>{w.text}</motion.span>
-            )
+            w.br ? <br key={i} /> :
+              w.s ? (
+                <motion.s key={i} variants={wordReveal} style={{ display: "inline" }}>{w.text}</motion.s>
+              ) : w.em ? (
+                <motion.em key={i} variants={wordReveal} style={{ display: "inline" }}>{w.text}</motion.em>
+              ) : (
+                <motion.span key={i} variants={wordReveal} style={{ display: "inline" }}>{w.text}</motion.span>
+              )
           )}
         </motion.h1>
 
@@ -1081,7 +1081,7 @@ function Hero() {
         {/* Brands */}
         <motion.div className="brands-row" variants={fIn(0.78)} initial="hidden" animate="visible">
           <span className="brands-label">Collab'd with</span>
-          {["8th Sin","444nomizo","Ichimise"].map((b,i) => (
+          {["8th Sin", "444nomizo", "Ichimise"].map((b, i) => (
             <motion.span
               key={b} className="brand-chip"
               initial={{ opacity: 0, scale: 0.82 }}
@@ -1113,8 +1113,8 @@ function Hero() {
           initial="hidden" animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 1.1 } } }}
         >
-          {[["03","Projects"],["4+","Tech domains"],["3","Brand collabs"],["∞","Taste"]].map(([n,l]) => (
-            <motion.div key={l} variants={{ hidden:{opacity:0,y:12}, visible:{opacity:1,y:0,transition:{duration:.5}} }}>
+          {[["03", "Projects"], ["4+", "Tech domains"], ["3", "Brand collabs"], ["∞", "Taste"]].map(([n, l]) => (
+            <motion.div key={l} variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0, transition: { duration: .5 } } }}>
               <div className="snum">{n}<span>_</span></div>
               <div className="slabel">{l}</div>
             </motion.div>
@@ -1133,10 +1133,10 @@ function Hero() {
           whileHover={{ y: -5, boxShadow: "0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(155,35,53,0.15)" }}
         >
           <div className="id-portrait">
-            <img src="/images/my.jpg" alt="Aditi Rawat"/>
+            <img src="/images/my.jpg" alt="Aditi Rawat" />
           </div>
           <div className="id-label">// Creative Engineer</div>
-          <div className="id-name">Aditi<br/>Rawat</div>
+          <div className="id-name">Aditi<br />Rawat</div>
           <div className="id-role">Fashion × Data</div>
           <div className="id-loc">📍 Delhi, India</div>
         </motion.div>
@@ -1149,7 +1149,7 @@ function Hero() {
           transition={{ type: "spring", stiffness: 240, damping: 16, delay: 1.1 }}
           whileHover={{ rotate: 0, scale: 1.03, boxShadow: "6px 6px 0 #000", transition: { type: "spring", stiffness: 300, damping: 15 } }}
         >
-          <MonsterLogo/>
+          <MonsterLogo />
           <div className="ms-content">
             <div className="ms-role">
               <strong>Monster Energy</strong>
@@ -1172,7 +1172,7 @@ function Marquee() {
   return (
     <div className="marquee-strip">
       <div className="marquee-track">
-        {d2.map((item,i) => <span key={i} className={`mi ${item.c}`}>{item.t}</span>)}
+        {d2.map((item, i) => <span key={i} className={`mi ${item.c}`}>{item.t}</span>)}
       </div>
     </div>
   );
@@ -1192,8 +1192,8 @@ function DropCard({ drop, index }) {
         <div className="drop-front">
           <div className="drop-num">{drop.num}</div>
           <div className="drop-visual">
-            <div className="drop-visual-stripe"/>
-            <div className="drop-visual-glow"/>
+            <div className="drop-visual-stripe" />
+            <div className="drop-visual-glow" />
             <span className="drop-visual-icon">{drop.icon}</span>
           </div>
           <h3 className="drop-title">{drop.title}</h3>
@@ -1230,7 +1230,7 @@ function Drops() {
       </div>
       <div className="drops-scroller">
         <div className="drops-row">
-          {drops.map((d,i) => <DropCard key={d.num} drop={d} index={i}/>)}
+          {drops.map((d, i) => <DropCard key={d.num} drop={d} index={i} />)}
         </div>
       </div>
     </section>
@@ -1259,7 +1259,7 @@ function Skills() {
         <h2 className="sec-title">What I can <em>actually</em> do.</h2>
       </div>
       <div className="skills-grid">
-        {skills.map((s,i) => <SkillBlock key={s.name} skill={s} delay={i * 0.08}/>)}
+        {skills.map((s, i) => <SkillBlock key={s.name} skill={s} delay={i * 0.08} />)}
       </div>
     </section>
   );
@@ -1284,13 +1284,13 @@ function Writing() {
         </div>
         <div className="wf-right">
           <p className="wf-excerpt">
-            When Quantum Gets Couture: Meet Majorana 1.<br/><br/>
+            When Quantum Gets Couture: Meet Majorana 1.<br /><br />
             Majorana 1 isn't just another "faster chip." It's the first quantum processor powered by a Topological Core, built from a new family of materials called "topoconductors." This chip leverages quirky "Majorana particles" to create qubits — the atomic-scale engines behind quantum computers — which are dramatically more stable and error-resistant than anything seen before.
           </p>
           <div className="wf-meta">
             <a href="https://medium.com/@aditixrawat/tech-gets-tailored-why-microsofts-majorana-chip-is-the-hottest-drop-in-quantum-1206970f0d2f" target="_blank" rel="noreferrer" className="wf-read">Read on Medium →</a>
             <div>
-              <a href="https://medium.com/@aditixrawat" target="_blank" rel="noreferrer" className="wf-medium-link"><MDIcon/> medium.com/@aditixrawat ↗</a>
+              <a href="https://medium.com/@aditixrawat" target="_blank" rel="noreferrer" className="wf-medium-link"><MDIcon /> medium.com/@aditixrawat ↗</a>
             </div>
           </div>
         </div>
@@ -1311,27 +1311,27 @@ function VideoModal({ videoId, onClose }) {
     <AnimatePresence>
       {videoId && (
         <>
-          <motion.div 
-            className="video-modal-bg" 
-            initial={{opacity:0}} 
-            animate={{opacity:1}} 
-            exit={{opacity:0}} 
+          <motion.div
+            className="video-modal-bg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={onClose}
           />
           <div className="video-modal-wrapper" onClick={onClose}>
             <motion.div
               className="video-modal"
-              initial={{opacity:0,scale:.94,y:20}}
-              animate={{opacity:1,scale:1,y:0}}
-              exit={{opacity:0,scale:.94,y:20}}
-              transition={{type:"spring",stiffness:300,damping:24}}
+              initial={{ opacity: 0, scale: .94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: .94, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
               onClick={e => e.stopPropagation()}
             >
               <button className="video-modal-close" onClick={onClose}>✕</button>
-              <iframe 
-                src={`https://www.instagram.com/reel/${videoId}/embed/`} 
-                title="Reel" 
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" 
+              <iframe
+                src={`https://www.instagram.com/reel/${videoId}/embed/`}
+                title="Reel"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
                 allowFullScreen
               />
             </motion.div>
@@ -1347,17 +1347,17 @@ function VisualEdge() {
   const ref = useReveal();
   const [active, setActive] = useState(null);
   const cells = [
-    {caption:"Editorial Direction",icon:"◇",videoId:"DQ10LwAkusQ"},
-    {caption:"Visual Storytelling",icon:"○",videoId:"DSZm9RuE-FS"},
-    {caption:"Campaign Modeling",icon:"△",videoId:"DUS_2O_k_X3"},
-    {caption:"Aesthetic Systems",icon:"□",videoId:"DJUZ7lUS9an"},
+    { caption: "Editorial Direction", icon: "◇", videoId: "DQ10LwAkusQ" },
+    { caption: "Visual Storytelling", icon: "○", videoId: "DSZm9RuE-FS" },
+    { caption: "Campaign Modeling", icon: "△", videoId: "DUS_2O_k_X3" },
+    { caption: "Aesthetic Systems", icon: "□", videoId: "DJUZ7lUS9an" },
   ];
   return (
     <section id="visual">
       <div className="reveal" ref={ref}>
         <div className="sec-eyebrow">Visual dimension</div>
         <h2 className="sec-title">The other <em>side.</em></h2>
-        <p style={{marginTop:".7rem",color:"var(--silver)",fontSize:".78rem",fontFamily:"var(--mono)",maxWidth:440,opacity:.55}}>
+        <p style={{ marginTop: ".7rem", color: "var(--silver)", fontSize: ".78rem", fontFamily: "var(--mono)", maxWidth: 440, opacity: .55 }}>
           Modeling, creative direction & visual storytelling — the instinct that sharpens the engineering.
         </p>
       </div>
@@ -1365,13 +1365,13 @@ function VisualEdge() {
         {/* Hero cell */}
         <div className="vcell">
           <div className="vcell-bg">◆</div>
-          <div className="vcell-headline">Fashion<br/><span>×</span><br/>Data</div>
+          <div className="vcell-headline">Fashion<br /><span>×</span><br />Data</div>
           <div className="vcell-brands">
-            {["8th Sin","444nomizo","Ichimise"].map(b => <span key={b} className="vcell-brand">◆ {b}</span>)}
+            {["8th Sin", "444nomizo", "Ichimise"].map(b => <span key={b} className="vcell-brand">◆ {b}</span>)}
           </div>
         </div>
         {/* Video cells */}
-        {cells.map((v,i) => (
+        {cells.map((v, i) => (
           <motion.div
             key={i} className="vcell vcell-video"
             onClick={() => setActive(v.videoId)}
@@ -1379,7 +1379,7 @@ function VisualEdge() {
             transition={{ type: "spring", stiffness: 280, damping: 20 }}
           >
             <div className="vcell-bg">{v.icon}</div>
-            <div className="vcell-hover-glow"/>
+            <div className="vcell-hover-glow" />
             <div className="vcell-inner">
               <span className="vcell-icon">{v.icon}</span>
               <div className="vcell-caption">{v.caption}</div>
@@ -1388,7 +1388,7 @@ function VisualEdge() {
           </motion.div>
         ))}
       </div>
-      <VideoModal videoId={active} onClose={() => setActive(null)}/>
+      <VideoModal videoId={active} onClose={() => setActive(null)} />
     </section>
   );
 }
@@ -1404,23 +1404,23 @@ function Contact() {
       <div className="reveal" ref={ref}>
         <div className="contact-eyebrow">Available now · Delhi, India</div>
         <h2 className="contact-headline">
-          Let's build something<br/>people actually use.
+          Let's build something<br />people actually use.
         </h2>
         <p className="contact-sub">Open to internships, projects & creative collaborations.</p>
         <div className="contact-btns">
-          <motion.a href="mailto:aditirawat.work@email.com" className="btn btn-white" whileHover={{scale:1.03,y:-2}} whileTap={{scale:.97}}><ML/>Say Hello</motion.a>
-          <motion.a href="https://github.com/aditixrawat" target="_blank" rel="noreferrer" className="btn btn-outline-w" whileHover={{scale:1.03,y:-2}} whileTap={{scale:.97}}><GH/>GitHub</motion.a>
-          <motion.a href="/AditiRawatResume.pdf" download className="btn btn-outline-w" whileHover={{scale:1.03,y:-2}} whileTap={{scale:.97}}><DL/>Resume</motion.a>
+          <motion.a href="mailto:aditirawat.work@email.com" className="btn btn-white" whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: .97 }}><ML />Say Hello</motion.a>
+          <motion.a href="https://github.com/aditixrawat" target="_blank" rel="noreferrer" className="btn btn-outline-w" whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: .97 }}><GH />GitHub</motion.a>
+          <motion.a href="/AditiRawatResume.pdf" download className="btn btn-outline-w" whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: .97 }}><DL />Resume</motion.a>
         </div>
         <div className="social-strip">
           {[
-            {href:"https://linkedin.com/in/aditixrawat",Icon:LI,label:"LinkedIn"},
-            {href:"https://instagram.com/whatwouldaditido",Icon:IG,label:"Instagram"},
-            {href:"https://medium.com/@aditixrawat",Icon:MDIcon,label:"Medium"},
-            {href:"https://aditixrawat.substack.com",Icon:SB,label:"Substack"},
-          ].map(({href,Icon,label}) => (
-            <motion.a key={label} href={href} target="_blank" rel="noreferrer" className="soc-btn" title={label} whileHover={{scale:1.1}} whileTap={{scale:.95}}>
-              <Icon/>
+            { href: "https://linkedin.com/in/aditixrawat", Icon: LI, label: "LinkedIn" },
+            { href: "https://instagram.com/whatwouldaditido", Icon: IG, label: "Instagram" },
+            { href: "https://medium.com/@aditixrawat", Icon: MDIcon, label: "Medium" },
+            { href: "https://aditixrawat.substack.com", Icon: SB, label: "Substack" },
+          ].map(({ href, Icon, label }) => (
+            <motion.a key={label} href={href} target="_blank" rel="noreferrer" className="soc-btn" title={label} whileHover={{ scale: 1.1 }} whileTap={{ scale: .95 }}>
+              <Icon />
             </motion.a>
           ))}
         </div>
@@ -1436,20 +1436,20 @@ function Diagnostics({ open, selectedCmd, setCmd, onClose, glitch }) {
     <AnimatePresence>
       {open && (
         <>
-          <motion.div className="diag-backdrop" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.22}} onClick={onClose}/>
+          <motion.div className="diag-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .22 }} onClick={onClose} />
           <motion.section
-            className={`diagnostics-shell ${glitch?"glitch":""}`}
-            initial={{y:"-40%",x:"-50%",opacity:0,scale:.95}}
-            animate={{y:"-50%",x:"-50%",opacity:1,scale:1}}
-            exit={{y:"-40%",x:"-50%",opacity:0,scale:.95}}
-            transition={{type:"spring",stiffness:300,damping:25}}
-            onClick={e=>e.stopPropagation()}
+            className={`diagnostics-shell ${glitch ? "glitch" : ""}`}
+            initial={{ y: "-40%", x: "-50%", opacity: 0, scale: .95 }}
+            animate={{ y: "-50%", x: "-50%", opacity: 1, scale: 1 }}
+            exit={{ y: "-40%", x: "-50%", opacity: 0, scale: .95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            onClick={e => e.stopPropagation()}
           >
             <div className="diag-topbar">
               <div className="diag-traffic">
-                <div className="diag-dot red" onClick={onClose}/>
-                <div className="diag-dot yellow"/>
-                <div className="diag-dot green"/>
+                <div className="diag-dot red" onClick={onClose} />
+                <div className="diag-dot yellow" />
+                <div className="diag-dot green" />
               </div>
               <div className="diag-title">aditi@macbook-pro:~</div>
             </div>
@@ -1467,7 +1467,7 @@ function Diagnostics({ open, selectedCmd, setCmd, onClose, glitch }) {
                   <div className="diag-sec-title">Commands</div>
                   <div className="diag-cmds">
                     {diagCmds.map(item => (
-                      <button key={item.id} className={`diag-cmd ${item.id===selectedCmd?"active":""}`} onClick={()=>setCmd(item.id)}>{item.label}</button>
+                      <button key={item.id} className={`diag-cmd ${item.id === selectedCmd ? "active" : ""}`} onClick={() => setCmd(item.id)}>{item.label}</button>
                     ))}
                   </div>
                 </div>
@@ -1479,12 +1479,12 @@ function Diagnostics({ open, selectedCmd, setCmd, onClose, glitch }) {
                   <span> {cmd.label}</span>
                 </div>
                 <div className="diag-out">
-                  {cmd.lines.map((line,i) => <div key={i}>{line}</div>)}
+                  {cmd.lines.map((line, i) => <div key={i}>{line}</div>)}
                 </div>
               </div>
             </div>
           </motion.section>
-          <div className={`diag-glitch ${glitch?"on":""}`}/>
+          <div className={`diag-glitch ${glitch ? "on" : ""}`} />
         </>
       )}
     </AnimatePresence>
@@ -1533,22 +1533,22 @@ export default function Portfolio() {
 
   return (
     <>
-      <G/>
-      <Cursor/>
-      <Nav onLogoTap={() => setTapCount(p => p + 1)}/>
+      <G />
+      <Cursor />
+      <Nav onLogoTap={() => setTapCount(p => p + 1)} />
       <main>
-        <Hero/>
-        <Marquee/>
-        <Drops/>
-        <Skills/>
-        <Writing/>
-        <VisualEdge/>
-        <Contact/>
+        <Hero />
+        <Marquee />
+        <Drops />
+        <Skills />
+        <Writing />
+        <VisualEdge />
+        <Contact />
       </main>
-      <Diagnostics open={diagOpen} selectedCmd={selCmd} setCmd={setSelCmd} onClose={closeD} glitch={glitch}/>
+      <Diagnostics open={diagOpen} selectedCmd={selCmd} setCmd={setSelCmd} onClose={closeD} glitch={glitch} />
       <footer>
         <span className="ft">© 2025 Aditi Rawat · Systems With Taste</span>
-        <div className="ft-status"><span className="ft-dot"/>Open to opportunities</div>
+        <div className="ft-status"><span className="ft-dot" />Open to opportunities</div>
         <span className="ft">Delhi, India</span>
       </footer>
     </>
