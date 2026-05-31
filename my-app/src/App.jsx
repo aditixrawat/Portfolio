@@ -669,9 +669,13 @@ const G = () => (
 
     /* Video modal */
     .video-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 9998; backdrop-filter: blur(6px); }
+    .video-modal-wrapper {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999;
+    }
     .video-modal {
-      position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      z-index: 9999; width: min(92vw,900px); aspect-ratio: 16/9;
+      position: relative; width: min(92vw,900px); aspect-ratio: 16/9;
       background: #000; border-radius: 12px; overflow: hidden;
       box-shadow: 0 32px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,0.05);
     }
@@ -1298,23 +1302,42 @@ function Writing() {
 /* ─── VIDEO MODAL ─── */
 function VideoModal({ videoId, onClose }) {
   useEffect(() => {
+    if (!videoId) return;
     const fn = e => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
-  }, [onClose]);
+  }, [videoId, onClose]);
   return (
     <AnimatePresence>
-      <motion.div className="video-modal-bg" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} onClick={onClose}/>
-      <motion.div
-        className="video-modal"
-        initial={{opacity:0,scale:.94,y:20}}
-        animate={{opacity:1,scale:1,y:0}}
-        exit={{opacity:0,scale:.94,y:20}}
-        transition={{type:"spring",stiffness:300,damping:24}}
-      >
-        <button className="video-modal-close" onClick={onClose}>✕</button>
-        <iframe src={`https://www.instagram.com/reel/${videoId}/embed/`} title="Reel" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowFullScreen/>
-      </motion.div>
+      {videoId && (
+        <>
+          <motion.div 
+            className="video-modal-bg" 
+            initial={{opacity:0}} 
+            animate={{opacity:1}} 
+            exit={{opacity:0}} 
+            onClick={onClose}
+          />
+          <div className="video-modal-wrapper" onClick={onClose}>
+            <motion.div
+              className="video-modal"
+              initial={{opacity:0,scale:.94,y:20}}
+              animate={{opacity:1,scale:1,y:0}}
+              exit={{opacity:0,scale:.94,y:20}}
+              transition={{type:"spring",stiffness:300,damping:24}}
+              onClick={e => e.stopPropagation()}
+            >
+              <button className="video-modal-close" onClick={onClose}>✕</button>
+              <iframe 
+                src={`https://www.instagram.com/reel/${videoId}/embed/`} 
+                title="Reel" 
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" 
+                allowFullScreen
+              />
+            </motion.div>
+          </div>
+        </>
+      )}
     </AnimatePresence>
   );
 }
@@ -1365,7 +1388,7 @@ function VisualEdge() {
           </motion.div>
         ))}
       </div>
-      {active && <VideoModal videoId={active} onClose={() => setActive(null)}/>}
+      <VideoModal videoId={active} onClose={() => setActive(null)}/>
     </section>
   );
 }
