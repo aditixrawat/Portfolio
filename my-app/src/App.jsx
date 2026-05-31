@@ -1009,6 +1009,39 @@ function Nav({ onLogoTap }) {
   );
 }
 
+/* ─── TEXT MORPHER ─── */
+function TextMorpher() {
+  const words = ["CREATIVE TECHNOLOGIST", "CREATIVE AI @ HELIUM"];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className="inline-flex items-center">
+      <span>ENGINEER ·&nbsp;</span>
+      <span className="relative inline-block overflow-hidden h-[1.2em] align-bottom">
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-block"
+          >
+            {words[index]}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+    </span>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════
    HERO — full cinematic treatment
 ═══════════════════════════════════════════════════════ */
@@ -1050,7 +1083,7 @@ function Hero() {
 
         {/* Eyebrow */}
         <motion.div className="hero-eyebrow" variants={fRight(0.32)} initial="hidden" animate="visible">
-          Engineer · Creative technologist
+          <TextMorpher />
         </motion.div>
 
         {/* Headline — word-by-word stagger */}
