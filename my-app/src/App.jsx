@@ -397,22 +397,7 @@ const G = () => (
     .ms-badge { font-family: var(--mono); font-size: .46rem; letter-spacing: .15em; text-transform: uppercase; background: #000; color: var(--monster); padding: .14rem .45rem; }
     .ms-dur { font-family: var(--mono); font-size: .46rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(0,0,0,.55); }
 
-    /* ── MARQUEE ── */
-    .marquee-strip {
-      overflow: hidden; padding: .75rem 0;
-      background: rgba(255,255,255,0.025);
-      border-top: 1px solid rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      position: relative; z-index: 1;
-    }
-    .marquee-track {
-      display: inline-flex; gap: 2.5rem;
-      animation: marquee 24s linear infinite;
-      white-space: nowrap;
-    }
-    .mi { font-family: var(--mono); font-size: .56rem; letter-spacing: .28em; text-transform: uppercase; color: rgba(168,164,176,0.25); }
-    .mi.b { color: var(--burg2); opacity: .7; }
-    .mi.w { color: rgba(168,164,176,0.55); }
+   
 
     /* ── SECTIONS ── */
     section { padding: 7rem 3.5rem; position: relative; z-index: 1; }
@@ -783,7 +768,6 @@ const G = () => (
     /* ── KEYFRAMES ── */
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     @keyframes burgBlink{0%,100%{opacity:1;box-shadow:0 0 8px rgba(155,35,53,0.7)}50%{opacity:.3;box-shadow:none}}
     @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
     @keyframes stickerIn{0%{transform:rotate(-4deg) scale(.7);opacity:0}70%{transform:rotate(-1.5deg) scale(1.04)}100%{transform:rotate(-1.5deg) scale(1);opacity:1}}
@@ -866,13 +850,7 @@ const thoughts = [
   { text: "The best systems are <em>invisible.</em>", note: "Complexity hidden, clarity exposed." },
 ];
 
-const marqueeData = [
-  { t: "Aditi Rawat", c: "w" }, { t: "·", c: "" }, { t: "Delhi, India", c: "" }, { t: "·", c: "" },
-  { t: "Creative Engineer", c: "b" }, { t: "·", c: "" }, { t: "Fashion × Data", c: "b" }, { t: "·", c: "" },
-  { t: "8th Sin", c: "w" }, { t: "·", c: "" }, { t: "444nomizo", c: "w" }, { t: "·", c: "" },
-  { t: "Ichimise", c: "w" }, { t: "·", c: "" }, { t: "Monster Energy", c: "w" }, { t: "·", c: "" },
-  { t: "Systems With Taste", c: "b" }, { t: "·", c: "" },
-];
+
 
 const diagStats = [
   { label: "Aesthetic Engine", value: "ACTIVE" },
@@ -1199,17 +1177,6 @@ function Hero() {
   );
 }
 
-/* ─── MARQUEE ─── */
-function Marquee() {
-  const d2 = [...marqueeData, ...marqueeData];
-  return (
-    <div className="marquee-strip">
-      <div className="marquee-track">
-        {d2.map((item, i) => <span key={i} className={`mi ${item.c}`}>{item.t}</span>)}
-      </div>
-    </div>
-  );
-}
 
 /* ─── DROP CARD ─── */
 function DropCard({ drop, index }) {
@@ -1571,7 +1538,7 @@ export default function Portfolio() {
       <Nav onLogoTap={() => setTapCount(p => p + 1)} />
       <main>
         <Hero />
-        <Marquee />
+
         <Drops />
         <Skills />
         <Writing />
